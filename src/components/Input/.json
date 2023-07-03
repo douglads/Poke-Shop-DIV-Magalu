@@ -1,0 +1,8 @@
+const poke: IPokemon = {
+    id: response.id,
+    name: response.name,
+    type: response.types[0].type.name,
+    types: [response.types.map((typeSlot: { type: { name: string; }; }) => typeSlot.type.name)],
+    photo: response.sprites.other.dream_world.front_default
+
+}
