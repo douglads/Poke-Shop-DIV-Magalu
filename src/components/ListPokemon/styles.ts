@@ -2,8 +2,6 @@ import { styled } from "styled-components"
 
 
 export const ListPokemonStyle = styled.div`
-
-
 @media (min-width: 600px) {
     display: grid;
     grid-template-columns: repeat(2, 1fr);

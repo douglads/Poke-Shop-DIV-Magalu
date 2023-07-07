@@ -1,17 +1,28 @@
 import { IPokemon } from "../../services/types";
 import { CardPokemonStyle, PokemonTypes } from "./styles";
+import { colorsAndTypes } from "./colorsAndTypes";
+import Button from "../Button";
+
 
 export default function CardPokemon({ id, name, photo, type, types }: IPokemon) {
-    types = types.slice(1)
+    const colorBg = colorsAndTypes.filter(colorType => colorType.type === type)[0]?.color || '#3ff366'
+    const typesPokemon = types[1] ? <PokemonTypes pokemontypesbg={colorBg}><span>{types[1]}</span></PokemonTypes> : <div/>
+
+    function ops() {
+        alert('click')
+    }
     return (
-        <CardPokemonStyle>
-            <li>{id}</li>
-            <li>{name}</li>
-            <li><img src={photo} alt="" /></li>
-            <PokemonTypes>
-                <li>{type}</li>
-                {types.map((type, index) => <li key={index}>{type}</li>)}
-            </PokemonTypes>
+        <CardPokemonStyle pokemontypesbg={colorBg}>
+            <div id="title">
+                <div id="h2"><h2>{name}</h2></div>
+                <span>id: {id}</span>
+            </div>
+            <ol id="types">
+                <PokemonTypes pokemontypesbg={colorBg}><span>{type}</span></PokemonTypes>
+                <PokemonTypes pokemontypesbg={colorBg}><img src={photo} alt="" /></PokemonTypes>
+                {typesPokemon}
+            </ol>
+            <Button text="Adicionar a pokebola" heandleClick={ops} />
         </CardPokemonStyle>
     )
 }

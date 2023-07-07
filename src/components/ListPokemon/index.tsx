@@ -29,9 +29,9 @@ export default function ListPokemon() {
     }
 
     useEffect(() => {
-        fetchPokemon(26, 34)
+        fetchPokemon(1, 20)
     })
-
+    
     return (
         <ListPokemonStyle>
             {pokemon.map(pokeDetail =>

@@ -1,7 +1,7 @@
 import styled, { css } from "styled-components";
 
 interface IContainer {
-    hiddenStyle: boolean
+    hiddenstyle: "Hide" | "Non-Hide"
 }
 
 export const Container = styled.div<IContainer>`
@@ -24,10 +24,10 @@ export const Container = styled.div<IContainer>`
   cursor: pointer;
 }
 
-${props => props.hiddenStyle === true ? css`
+${props => props.hiddenstyle === "Non-Hide" ? css`
 .input:focus,
 .input:not(:invalid) {
-  width: 25vw;
+  width: 100%;
   cursor: text;
   box-shadow: 0px 0px 0px #f1f1f1, 0px 0px 0px rgb(95 94 94 / 25%), inset 1.5px 1.5px 3px #f1f1f1, inset -1.5px -1.5px 3px #a0a1a1;
 }
