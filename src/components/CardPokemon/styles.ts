@@ -39,7 +39,15 @@ width: 100%;
         font-size: 1rem;
         top: -0.3125rem;
     }
+    #number{
+        font-family: 'Pokemon', 'Roboto', sans-serif;
+        color: #ffdb00;
+        text-shadow: 3px 3px 0 #000000;
+        letter-spacing: .125rem;
+        font-size: 1rem;
+    }
 }
+
 button{
     margin-top: 10px;
 }
@@ -56,7 +64,15 @@ width: 100%;
         height: 6.25rem;    
     }
 }
-
+#price{     
+    margin-top: .625rem;
+    background-color: ${({ pokemontypesbg }) => pokemontypesbg};
+    filter: brightness(1.2);
+    padding: .625rem;
+    border-radius: .25rem;
+    font-size: 1.25rem;
+    font-weight: 600;
+}
 `
 export const PokemonTypes = styled.li<ICardPokemonStyle>`
 display: flex;

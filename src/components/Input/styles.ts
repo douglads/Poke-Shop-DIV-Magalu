@@ -1,7 +1,7 @@
 import styled, { css } from "styled-components";
 
 interface IContainer {
-    hiddenstyle: "Hide" | "Non-Hide"
+    hiddenstyle: "Hide" | "No-Hide"
 }
 
 export const Container = styled.div<IContainer>`
@@ -14,22 +14,22 @@ export const Container = styled.div<IContainer>`
   height: var(--size-button);
   font-size: 15px;
   border: none;
-  color: #a0a1a1;
+  color:  #000000;
   outline: none;
   width: var(--size-button);
   transition: all ease 0.5s;
-  background-color: #E6E5E1;
-  box-shadow: 1.5px 1.5px 3px #f1f1f1, -1.5px -1.5px 3px rgb(95 94 94 / 25%), inset 0px 0px 0px #f1f1f1, inset 0px -0px 0px #a0a1a1;
+  background-color:  #ffff00;
+  box-shadow: 1.5px 1.5px 3px  #ffff00, -1.5px -1.5px 3px #ffdd0040, inset 0px 0px 0px  #ffff00, inset 0px -0px 0px  #ffdb00;
   border-radius: 5px;
   cursor: pointer;
 }
 
-${props => props.hiddenstyle === "Non-Hide" ? css`
+${props => props.hiddenstyle === "No-Hide" ? css`
 .input:focus,
 .input:not(:invalid) {
   width: 100%;
   cursor: text;
-  box-shadow: 0px 0px 0px #f1f1f1, 0px 0px 0px rgb(95 94 94 / 25%), inset 1.5px 1.5px 3px #f1f1f1, inset -1.5px -1.5px 3px #a0a1a1;
+  box-shadow: 0px 0px 0px  #ffff00, 0px 0px 0px #ffdd0040, inset 1.5px 1.5px 3px  #ffff00, inset -1.5px -1.5px 3px  #ffdb00;
 }
 ` : null}
 

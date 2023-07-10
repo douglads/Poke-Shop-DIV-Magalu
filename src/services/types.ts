@@ -1,7 +1,8 @@
 export interface IPokemon{
     name: string,
-    id: number
+    id: number,
     type: string,
-    types: string[];
-    photo: string
+    types: string[],
+    photo: string,
+    price?: string,
 }
