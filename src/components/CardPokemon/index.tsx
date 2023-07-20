@@ -1,16 +1,21 @@
-import { IPokemon } from "../../services/types";
 import { CardPokemonStyle, PokemonTypes } from "./styles";
 import { colorsAndTypes } from "./colorsAndTypes";
 import Button from "../Button";
 
+interface ICardPokemon {
+    handleClick: () => void
+    name: string,
+    id: number,
+    type: string,
+    types: string[],
+    photo: string,
+    price?: string,
+}
 
-export default function CardPokemon({ id, name, photo, type, types, price }: IPokemon) {
+export default function CardPokemon({ id, name, photo, type, types, price, handleClick }: ICardPokemon) {
     const colorBg = colorsAndTypes.filter(colorType => colorType.type === type)[0]?.color || '#3ff366'
-    const typesPokemon = types[1] ? <PokemonTypes pokemontypesbg={colorBg}><span>{types[1]}</span></PokemonTypes> : <div/>
-
-    function ops() {
-        alert('click')
-    }
+    const typesPokemon = types[1] ? <PokemonTypes pokemontypesbg={colorBg}><span>{types[1]}</span></PokemonTypes> : <div />
+    
     return (
         <CardPokemonStyle pokemontypesbg={colorBg}>
             <div id="title">
@@ -23,7 +28,7 @@ export default function CardPokemon({ id, name, photo, type, types, price }: IPo
                 {typesPokemon}
             </ol>
             <span id='price'>{price}</span>
-            <Button text="Adicionar a pokebola" heandleClick={ops} />
+            <Button variants="addCart" text="Adicionar a pokebola" heandleClick={handleClick} />
         </CardPokemonStyle>
     )
 }

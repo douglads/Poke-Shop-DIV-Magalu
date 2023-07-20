@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const CountKart = styled.section`
+export const CountCart = styled.section`
 span{
     position: relative;
     font-family: 'Pokemon', 'Roboto', sans-serif;

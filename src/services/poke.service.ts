@@ -1,15 +1,33 @@
 import { api } from "./api";
 
-export function getMaxPokemon() {
+export async function getMaxPokemon() {
     return (
-        api.get(`api/v2/pokemon?limit=1&offset=0`)
+        await api.get(`pokemon?limit=1&offset=0`)
             .then(res => res.data.count)
             .catch(error => console.error(error))
     )
 }
 
-export function getPokemonDetail(id: number) {
-    return (api.get(`/api/v2/pokemon/${id}/`).then(res => res.data)
+export async function getPokemonDetail(name: string) {
+    return ( 
+        await api.get(`pokemon/${name}/`)
+        .then(res => res.data)
+        .catch(error => console.error(error))
+    )
+}
+
+export async function paginationPokemonList(offset = 9){
+    return (
+        await api.get(`pokemon?offset=${offset}&limit=9`)
+        .then(res => res.data)
+        .catch(error => console.log(error))
+    )
+}
+
+export async function getAllPokemon() {
+    return(
+        await api.get('pokemon?limit=100000&offset=0')
+        .then(res => res.data.results)
         .catch(error => console.error(error))
     )
 }

@@ -15,7 +15,7 @@ section{
     height: 12.5rem;
 }
 
-.kart{
+.cart{
     height: 3rem;
 }
 

@@ -1,8 +1,9 @@
-import Home from "./screen/Home"
-
+import Router from "./Routes/index.router"
+import { setPokemonListCard} from "./utils/ListPokemonFromApi"
 
 function App() {
-  return <Home/>
+
+  return <Router/>
 }
 
 export default App
