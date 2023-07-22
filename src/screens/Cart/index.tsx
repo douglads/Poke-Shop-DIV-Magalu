@@ -6,6 +6,7 @@ import { CartItemsContext } from "../../Context/CartItems"
 import Header from "../../components/Header"
 import PokemonBallCount from "../../components/PokemonBallCount"
 import logo from '../../assets/logo.png'
+import { Footer } from "../../components/Footer"
 
 export default function Cart() {
     const { CartItems, setCartItems } = useContext(CartItemsContext)
@@ -22,7 +23,7 @@ export default function Cart() {
             valueAmount += amountItem
         }
         valueSum = Number(valueSum.toFixed(2))
-        const formattedValue = String(valueSum).replace('.', ',') + ' R$'
+        const formattedValue = valueSum > 0 ? `${String(valueSum).replace('.', ',')}  R$` : '0,00 R$'
         CartItemsCopy.count = valueAmount
         setCartItems(CartItemsCopy)
         setValue(formattedValue)
@@ -52,6 +53,22 @@ export default function Cart() {
     useEffect(() => {
         totalValue();
     }, [value]);
+
+    function setCartItemZero() {
+        CartItemsCopy.count = 0
+        CartItemsCopy.item.splice(0, CartItemsCopy.item.length)        
+        setCartItems(CartItemsCopy)
+    }
+
+    function finishButton(): JSX.Element {
+        if (CartItems.count > 0) {
+            return (
+                <Link id="finish" onClick={setCartItemZero} to={"/finished-buy"}>Finalizar Compra</Link>
+            )
+        }
+        return < Link id="finish" to={"/"} > Voltar para a tela principal</Link >
+    }
+
     return (
         <>
             <Header>
@@ -82,12 +99,11 @@ export default function Cart() {
                     </ItemCart>)}
                 <div>
                     <Link id="home" to='/'>Comprar mais?</Link>
-                    <div>
-                        <h3>Valor total da pokebola: {value}</h3>
-                        <Button variants="addCart" text="Finalizar Compra" heandleClick={() => alert('vai que é tua')} />
-                    </div>
+                    <h3>Valor total da pokebola: {value}</h3>
+                    {finishButton()}
                 </div>
             </CartStyle>
+            <Footer />
         </>
     )
 }

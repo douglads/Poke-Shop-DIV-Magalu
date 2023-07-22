@@ -4,5 +4,17 @@
 }
 html{
     font-family: 'Roboto', sans-serif;
-    background-color: rgb(234, 136, 61);
+    background-color: #ea883d;
+}
+
+a, a:visited, a:active{
+    color: unset;
+    text-decoration: none;
+}
+
+#root{
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }

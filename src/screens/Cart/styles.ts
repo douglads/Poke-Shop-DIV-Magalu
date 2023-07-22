@@ -11,6 +11,25 @@ padding: 2rem;
     color: #fff;
 }
 
+
+#finish{
+padding: .5rem;
+border: none;
+border-radius: 5px;
+background-color: rgb(172, 15, 15);
+color: #fff;
+cursor: pointer;
+}
+
+a:hover{
+    filter: brightness(1.3);
+}
+
+h3{
+    color: #f5deb3;
+    font-size: 1.25rem;
+}
+
 div{
     display: flex;
     justify-content: space-between;
@@ -38,7 +57,7 @@ export const ItemCart = styled.div`
 
 display: grid;
 grid-template-columns: 1fr 2fr 1fr;
-border: 2px solid wheat;
+border: 2px solid #f5deb3;
 border-radius: 1rem;
 padding: 1rem;
 margin-bottom: 1rem;

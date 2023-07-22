@@ -6,7 +6,7 @@ import logo from '../../assets/logo.png'
 import Input from '../../components/Input'
 import PokemonBallCount from '../../components/PokemonBallCount'
 import CardPokemon from '../../components/CardPokemon'
-import { CartItemsContext, ICartItem } from '../../Context/CartItems'
+import { CartItemsContext } from '../../Context/CartItems'
 import { ListPokemonContext } from '../../Context/ListPokemon'
 import { setPokemonListCard } from '../../utils/ListPokemonFromApi';
 import Button from '../../components/Button';
@@ -19,15 +19,22 @@ export default function Home() {
     const { pokemon, setPokemon } = useContext(ListPokemonContext)
     const [searchTerm, setSearchTerm] = useState('')
     const CartItemsCopy = CartItems
-    async function getPoke(search: string, cart: ICartItem, offset = 9) {
-        const getPoke = await setPokemonListCard(search, cart, offset)
+    
+    if (pokemon.length <= 0) {
+        getPoke('')
+    }
+
+    const [cartCount, setCartCount] = useState(CartItemsCopy.count)
+
+    async function getPoke(search: string, offset = 9) {
+        const getPoke = await setPokemonListCard(search, pokemon, CartItems, offset)
         numberPokemonArray = getPoke[1]
         setPokemon(getPoke[0])
-
     }
-    const [cartCount, setCartCount] = useState(CartItemsCopy.count)
-    if (pokemon.length <= 0) {
-        getPoke('', CartItems)
+
+    function searchPokemon() {
+        setPokemon(pokemon.splice(0, pokemon.length))
+        getPoke(searchTerm)
     }
 
     function addItems(id: number, price: string, name: string, photo: string) {
@@ -48,13 +55,11 @@ export default function Home() {
         else if (length < numberPokemonArray) {
             return (
                 <Button variants="addCart" text="Listar Mais" heandleClick={() =>
-                    getPoke(searchTerm, CartItems, (
-                        pokemon.length + 9
-                    ))} />
+                    getPoke(searchTerm, (pokemon.length + 9))} />
             )
     }
     
-        return <h1>Não mais pokemon para pesquisar</h1>
+        return <p className='noMore'>Não há mais pokemon para pesquisar</p>
     }
     return (
         <>
@@ -66,7 +71,7 @@ export default function Home() {
                 </section>
                 <section className='center'>
                     <Input
-                        handleClick={() => getPoke(searchTerm, CartItems)}
+                        handleClick={() => searchPokemon()}
                         handleChange={e => setSearchTerm(e.target.value.toLowerCase())} />
                 </section>
                 <PokemonBallCount value={cartCount} />

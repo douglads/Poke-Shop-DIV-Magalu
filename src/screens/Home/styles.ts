@@ -11,4 +11,9 @@ justify-content: space-between;
     width: 20rem;
     height: 3rem;
 }
+
+.noMore{
+    font-size: 1.25rem;
+    color: #f5deb3;
+}
 `

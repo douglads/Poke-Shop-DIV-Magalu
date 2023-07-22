@@ -4,10 +4,8 @@ export const Header = styled.header`
 display: flex;
 justify-content: space-between;
 align-items: center;
-padding: 1rem;
-
+padding: 1rem 5rem 0 5rem;
 section{
-    width: 33vw;
     max-width: 33vw;
 }
 
@@ -22,7 +20,8 @@ section{
 .center{
     display: flex;
     align-items: center ;
-    justify-content: center;}
+    justify-content: center;
+}
 
 .end{
     display: flex;
