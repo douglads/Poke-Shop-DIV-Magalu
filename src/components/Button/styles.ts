@@ -50,6 +50,10 @@ text-align: center;
 &:hover{
     filter: brightness(1.3);
 }
+@media (max-width: 500px){
+width: 2rem;
+height: 2rem;
+}
 `
 export const ButtonPlusCart = styled.button`
 display: flex;
@@ -68,6 +72,10 @@ height: 40px;
 text-align: center;
 &:hover{
     filter: brightness(1.3);
+}
+@media (max-width: 500px){
+width: 2rem;
+height: 2rem;
 }
 `
 

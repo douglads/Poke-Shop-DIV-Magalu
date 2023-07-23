@@ -19,14 +19,20 @@ export default function Home() {
     const { pokemon, setPokemon } = useContext(ListPokemonContext)
     const [searchTerm, setSearchTerm] = useState('')
     const CartItemsCopy = CartItems
-    
+    const widthDocument = document.documentElement.clientWidth
+    let globalOffset = 5
+    if (widthDocument > 999) {
+        globalOffset = 9
+    } else if (widthDocument > 699 && widthDocument < 1000)
+        globalOffset = 8
+
     if (pokemon.length <= 0) {
         getPoke('')
     }
 
     const [cartCount, setCartCount] = useState(CartItemsCopy.count)
 
-    async function getPoke(search: string, offset = 9) {
+    async function getPoke(search: string, offset = globalOffset) {
         const getPoke = await setPokemonListCard(search, pokemon, CartItems, offset)
         numberPokemonArray = getPoke[1]
         setPokemon(getPoke[0])
@@ -55,16 +61,16 @@ export default function Home() {
         else if (length < numberPokemonArray) {
             return (
                 <Button variants="addCart" text="Listar Mais" heandleClick={() =>
-                    getPoke(searchTerm, (pokemon.length + 9))} />
+                    getPoke(searchTerm, (pokemon.length + globalOffset))} />
             )
-    }
-    
+        }
+
         return <p className='noMore'>Não há mais pokemon para pesquisar</p>
     }
     return (
         <>
             <Header>
-                <section>
+                <section className='start'>
                     <Link to='/' reloadDocument>
                         <img className='logo' src={logo} alt="" />
                     </Link>
@@ -72,7 +78,8 @@ export default function Home() {
                 <section className='center'>
                     <Input
                         handleClick={() => searchPokemon()}
-                        handleChange={e => setSearchTerm(e.target.value.toLowerCase())} />
+                        handleChange={e => setSearchTerm(e.target.value.toLowerCase())}
+                    />
                 </section>
                 <PokemonBallCount value={cartCount} />
             </Header>

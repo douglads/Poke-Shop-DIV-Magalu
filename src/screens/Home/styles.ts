@@ -16,4 +16,9 @@ justify-content: space-between;
     font-size: 1.25rem;
     color: #f5deb3;
 }
+
+
+@media (max-width: 500px) {
+padding: 1rem 1rem 1rem 1rem;
+}
 `
