@@ -1,18 +1,24 @@
 import { styled } from "styled-components"
 
 export const Loading = styled.div`
-display: flex;
-align-items: center;
-justify-content: center;
+text-align: center;
+
+@media (max-width: 500px) {
+    width: 100%;
+    img{
+        width: 100%;
+    }
+}
 `
 
 export const ListPokemonStyle = styled.div`
 width: 100%;
-@media (min-width: 600px) {
+display: grid;
+grid-template-columns: repeat(3, 1fr);
+@media (max-width: 1000px) {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
 }
-@media (min-width: 1000px) {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
+@media (max-width: 700px) {
+    display: block;
 }`

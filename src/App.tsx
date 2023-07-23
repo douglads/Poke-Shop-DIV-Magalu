@@ -1,5 +1,4 @@
 import Router from "./Routes/index.router"
-import { setPokemonListCard} from "./utils/ListPokemonFromApi"
 
 function App() {
 

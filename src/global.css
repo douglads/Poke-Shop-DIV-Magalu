@@ -18,3 +18,10 @@ a, a:visited, a:active{
     flex-direction: column;
     justify-content: space-between;
 }
+
+
+@media (max-width: 500px) {
+    #root{
+        align-items: center;
+    }
+}

@@ -33,13 +33,27 @@ h3{
 div{
     display: flex;
     justify-content: space-between;
-    align-items: center;
 
     button:last-child{
         padding: .5rem 1rem;
         border-radius: 5px;
         margin-left: 5rem;
     }
+    
+}
+@media (max-width: 500px){
+    padding: 1rem;
+    #home{
+        display: none;
+    }
+    #finish{
+        text-align: center;
+    }
+    div{
+        button:last-child{
+            display: none;
+        }
+}
 }
 `
 
@@ -56,11 +70,14 @@ margin-bottom: 2rem;
 export const ItemCart = styled.div`
 
 display: grid;
-grid-template-columns: 1fr 2fr 1fr;
+grid-template-columns: 1fr fr 1fr;
 border: 2px solid #f5deb3;
 border-radius: 1rem;
-padding: 1rem;
 margin-bottom: 1rem;
+padding: 1rem;
+@media (max-width: 500px){
+padding: .5rem;
+}
 .pokemonPhoto{
     height: 3.125rem;
 }
@@ -88,6 +105,10 @@ div:first-child{
     position: relative;
     top: 16px;
     
+}
+
+@media (max-width: 500px){
+    flex-direction: column;
 }
 `
 

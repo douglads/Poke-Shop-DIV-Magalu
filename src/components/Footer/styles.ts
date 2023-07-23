@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const Footer = styled.footer`
 border-top: solid 2px #f5deb3;
-margin: 0 2rem;
+margin: 0 1rem;
 padding: 2rem 0;
 color: #f5deb3;
 div{
@@ -39,4 +39,18 @@ h4{
     text-align: center;
 }
 
+
+@media (max-width: 500px){
+    
+div{
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+}
+
+#about{
+    width: 100%;
+    padding-top: 1rem;
+}
+}
 `

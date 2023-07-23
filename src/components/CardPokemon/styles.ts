@@ -26,7 +26,7 @@ margin-bottom: 16px;
 width: 100%;
     #h2{
         background-color: ${({ pokemontypesbg }) => pokemontypesbg};
-        filter: brightness(1.2);
+        filter: brightness(1.1);
         padding: .625rem;
         border-radius: .25rem;
     }

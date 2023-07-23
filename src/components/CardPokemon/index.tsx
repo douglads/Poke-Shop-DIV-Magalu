@@ -13,7 +13,7 @@ interface ICardPokemon {
 }
 
 export default function CardPokemon({ id, name, photo, type, types, price, handleClick }: ICardPokemon) {
-    const colorBg = colorsAndTypes.filter(colorType => colorType.type === type)[0]?.color || '#3ff366'
+    const colorBg = colorsAndTypes.filter(colorType => colorType.type === type)[0]?.color
     const typesPokemon = types[1] ? <PokemonTypes pokemontypesbg={colorBg}><span>{types[1]}</span></PokemonTypes> : <div />
     
     return (
