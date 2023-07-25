@@ -6,7 +6,6 @@ import generatinRandomValues from "../generatingRandomValues";
 export async function setPokemonListCard(search: string, pokemonContext: IPokemon[], CartItems: ICartItem, offset = 9) {
     const pokemon: IPokemon[] = [...pokemonContext]
     let allPokemon
-
     function checkPrice(id: number) {
         const cartExists = CartItems ? CartItems.item.findIndex(cartItem => cartItem.id === id) : -1
         const priceExists = pokemon.findIndex(pokemon => pokemon.id === id)
@@ -44,6 +43,5 @@ export async function setPokemonListCard(search: string, pokemonContext: IPokemo
     catch (error) {
         console.log(error)
     }
-
     return [pokemon, allPokemon.length]
 }

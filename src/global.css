@@ -1,18 +1,29 @@
+* {
+    --yellow-letter: #ffdb00;
+    --orange-white: #f5deb3;
+    --organge-light: #f8c057;
+    --button-red: #ac0f0f;
+    --white-full : #ffffff;
+}
+
 @font-face {
     font-family: 'Pokemon';
     src: url('./assets/font/Pokemon Solid.ttf');
 }
-html{
+
+html {
     font-family: 'Roboto', sans-serif;
     background-color: #ea883d;
 }
 
-a, a:visited, a:active{
+a,
+a:visited,
+a:active {
     color: unset;
     text-decoration: none;
 }
 
-#root{
+#root {
     min-height: 100vh;
     display: flex;
     flex-direction: column;
@@ -21,7 +32,7 @@ a, a:visited, a:active{
 
 
 @media (max-width: 500px) {
-    #root{
+    #root {
         align-items: center;
     }
 }

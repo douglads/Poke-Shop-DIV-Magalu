@@ -1,7 +1,7 @@
 import { createContext, useState } from 'react';
 import { ICart } from '../components/CardPokemon/cartTypes';
 
-export interface ICartItem{
+export interface ICartItem {
     item: ICart[]
     count: number
 }
@@ -14,7 +14,7 @@ interface CartItemsContextData {
 export const CartItemsContext = createContext<CartItemsContextData>({} as CartItemsContextData)
 
 export function CartItemsProvider({ children }: { children: React.ReactNode }) {
-    const [CartItems, setCartItems] = useState<ICartItem>({item: [], count: 0})
+    const [CartItems, setCartItems] = useState<ICartItem>({ item: [], count: 0 })
     return (
         <CartItemsContext.Provider value={{ CartItems, setCartItems }}>
             {children}

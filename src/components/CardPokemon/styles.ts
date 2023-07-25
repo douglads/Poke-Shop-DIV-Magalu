@@ -33,7 +33,7 @@ width: 100%;
     h2{
         position: relative;
         font-family: 'Pokemon', 'Roboto', sans-serif;
-        color: #ffdb00;
+        color: var(--yellow-letter);
         text-shadow: 3px 3px 0 #000000;
         letter-spacing: .125rem;
         font-size: 1rem;
@@ -41,7 +41,7 @@ width: 100%;
     }
     #number{
         font-family: 'Pokemon', 'Roboto', sans-serif;
-        color: #ffdb00;
+        color: var(--yellow-letter);
         text-shadow: 3px 3px 0 #000000;
         letter-spacing: .125rem;
         font-size: 1rem;

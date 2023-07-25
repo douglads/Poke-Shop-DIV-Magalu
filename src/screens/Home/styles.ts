@@ -14,7 +14,7 @@ justify-content: space-between;
 
 .noMore{
     font-size: 1.25rem;
-    color: #f5deb3;
+    color: var(--orange-white);
 }
 
 

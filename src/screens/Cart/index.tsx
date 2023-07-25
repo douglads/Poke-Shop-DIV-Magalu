@@ -22,8 +22,7 @@ export default function Cart() {
             valueSum += amountItem * price
             valueAmount += amountItem
         }
-        valueSum = Number(valueSum.toFixed(2))
-        const formattedValue = `Valor total da pokébola ${String(valueSum).replace('.', ',')}  R$`
+        const formattedValue = `Valor total da pokébola ${valueSum.toFixed(2).replace('.', ',')}  R$`
         CartItemsCopy.count = valueAmount
         setCartItems(CartItemsCopy)
         setValue(formattedValue)
@@ -50,9 +49,6 @@ export default function Cart() {
         setCartItems(CartItemsCopy)
     }
 
-    useEffect(() => {
-        totalValue();
-    }, [value]);
 
     function setCartItemZero() {
         CartItemsCopy.count = 0
@@ -70,14 +66,16 @@ export default function Cart() {
     }
 
     function emptyCart(): JSX.Element | null{
-        if (value.includes('a 0  R$')) {
-            
+        if (value.includes('a 0,00  R$')) {
             return null
         }
-        console.log(value);
         return <h3>{value}</h3>
     }
 
+    useEffect(() => {
+        totalValue();
+    }, [value]);
+    
     return (
         <>
             <Header>
@@ -86,7 +84,7 @@ export default function Cart() {
                         <img className='logo' src={logo} alt="" />
                     </Link>
                 </section>
-                <section>
+                <section className="center">
                     <H1>Pokebola</H1>
                 </section>
                 <PokemonBallCount value={CartItems.count} />

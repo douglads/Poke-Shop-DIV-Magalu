@@ -28,7 +28,7 @@ export default function CardPokemon({ id, name, photo, type, types, price, handl
                 {typesPokemon}
             </ol>
             <span id='price'>{price}</span>
-            <Button variants="addCart" text="Adicionar a pokebola" heandleClick={handleClick} />
+            <Button variants="Red" text="Adicionar a pokebola" heandleClick={handleClick} />
         </CardPokemonStyle>
     )
 }

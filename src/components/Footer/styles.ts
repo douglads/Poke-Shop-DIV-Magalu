@@ -1,10 +1,10 @@
 import styled from "styled-components";
 
 export const Footer = styled.footer`
-border-top: solid 2px #f5deb3;
+border-top: solid 2px var(--orange-white);
 margin: 0 1rem;
 padding: 2rem 0;
-color: #f5deb3;
+color: var(--orange-white);
 div{
     display: flex;
     justify-content: space-between;
@@ -14,7 +14,7 @@ div{
 h4{
     font-size: 1.5rem;
     font-weight: 600;
-    color: #f8c057;
+    color: var(--organge-light);
 }
 
 #Contato li{
@@ -51,6 +51,9 @@ div{
 #about{
     width: 100%;
     padding-top: 1rem;
+}
+h4{
+    padding-bottom: 0.5rem;
 }
 }
 `

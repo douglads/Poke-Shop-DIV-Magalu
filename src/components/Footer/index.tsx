@@ -12,22 +12,22 @@ export function Footer() {
                     <h4>Contatos:</h4>
                     <li>
                         <Link target="_blank" to={'https://www.linkedin.com/in/dev-douglas-machado/'}>
-                            <LinkedinLogo size={32} color="#f5deb3" /><span> Douglas Machado</span>
+                            <LinkedinLogo size={32} color="var(--orange-white)" /><span> Douglas Machado</span>
                         </Link>
                     </li>
                     <li>
                         <Link target="_blank" to={'mailto:douglasfm1995@gmail.com'}>
-                            <Envelope size={32} color="#f5deb3" /><span>douglasfm1995@gmail.com</span>
+                            <Envelope size={32} color="var(--orange-white)" /><span>douglasfm1995@gmail.com</span>
                         </Link>
                     </li>
                     <li>
                         <Link target="_blank" to={'https://wa.me/5515997120495?text=Ol%C3%A1%2C+tudo+bem%3F'}>
-                            <WhatsappLogo size={32} color="#f5deb3" /><span>+55 (15) 99712-0495</span>
+                            <WhatsappLogo size={32} color="var(--orange-white)" /><span>+55 (15) 99712-0495</span>
                         </Link>
                     </li>
                     <li>
                         <Link target="_blank" to={'https://github.com/douglads/Poke-Shop-DIV-Magalu'}>
-                            <GithubLogo size={32} color="#f5deb3" /><span>Github: douglads</span>
+                            <GithubLogo size={32} color="var(--orange-white)" /><span>Github: douglads</span>
                         </Link>
                     </li>
                 </ul>

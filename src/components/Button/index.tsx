@@ -1,5 +1,5 @@
 import {
-    ButtonAddCart,
+    ButtonRed,
     ButtonGarbage,
     ButtonMinusCart,
     ButtonPlusCart,
@@ -8,20 +8,23 @@ import {
 import trash from '../../assets/icons/trash.png';
 import Glass from '../../assets/icons/glass.png';
 interface IButton {
-    variants: 'plusCart' | 'minusCart' | 'gabage' | 'addCart' | 'buttonSearch'
+    variants: 'plusCart' | 'minusCart' | 'gabage' | 'Red' | 'buttonSearch'
     text?: string
     heandleClick?: () => void
+    disabled?: boolean
 }
 
-export default function Button({ heandleClick, text, variants }: IButton) {
-    if (variants === 'addCart')
+export default function Button({ heandleClick, text, variants, disabled }: IButton) {
+    if (variants === 'Red')
         return (
-            <ButtonAddCart
+            <ButtonRed
                 type="submit"
                 onClick={heandleClick}
+                id='btnRed'
+                disabled={disabled}
             >
                 {text}
-            </ButtonAddCart>)
+            </ButtonRed>)
     if (variants === 'gabage')
         return (
             <ButtonGarbage

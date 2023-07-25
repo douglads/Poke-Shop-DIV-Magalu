@@ -4,11 +4,11 @@ export const CartStyle = styled.main`
 padding: 2rem;
 
 #home{
-    background-color:#ffdb00;
+    background-color:var(--yellow-letter);
     padding: .5rem 1rem;
     border-radius: 5px;
     text-decoration: none;
-    color: #fff;
+    color: var(--white-full);
 }
 
 
@@ -16,8 +16,8 @@ padding: 2rem;
 padding: .5rem;
 border: none;
 border-radius: 5px;
-background-color: rgb(172, 15, 15);
-color: #fff;
+background-color: var(--button-red);
+color: var(--white-full);
 cursor: pointer;
 }
 
@@ -26,7 +26,7 @@ a:hover{
 }
 
 h3{
-    color: #f5deb3;
+    color: var(--organge-light);
     font-size: 1.25rem;
 }
 
@@ -62,7 +62,7 @@ font-family: 'Pokemon', 'Roboto', sans-serif;
 text-align: center;
 font-size: 3rem;
 font-weight: 700px;
-color: #ffdb00;
+color: var(--yellow-letter);
 text-shadow: 3px 3px 0 #000000;
 letter-spacing: .125rem;
 margin-bottom: 2rem;
@@ -71,7 +71,7 @@ export const ItemCart = styled.div`
 
 display: grid;
 grid-template-columns: 1fr fr 1fr;
-border: 2px solid #f5deb3;
+border: 2px solid var(--orange-white);
 border-radius: 1rem;
 margin-bottom: 1rem;
 padding: 1rem;
@@ -98,7 +98,7 @@ div:first-child{
     font-family: 'Pokemon', 'Roboto', sans-serif;
     font-size: 1rem;
     font-weight: 700px;
-    color: #ffdb00;
+    color: var(--yellow-letter);
     text-shadow: 3px 3px 0 #000000;
     letter-spacing: .125rem;
     margin-bottom: 2rem;

@@ -1,9 +1,9 @@
 import { styled } from "styled-components";
 
 export const Header = styled.header`
-display: flex;
-justify-content: space-between;
-align-items: center;
+display: grid;
+
+grid-template-columns: repeat(3, 1fr);
 padding: 1rem 5rem 0 5rem;
 
 .logo{
@@ -18,24 +18,21 @@ padding: 1rem 5rem 0 5rem;
     display: flex;
     align-items: center ;
     justify-content: start;
-    width: 33%;
 }
 
 .center{
     display: flex;
     align-items: center ;
     justify-content: center;
-    width: 33%;
 }
 
 .end{
     display: flex;
     align-items: center ;
     justify-content: end;
-    width: 33%;
 }
 
-@media (max-width: 500px) {
+@media (max-width: 700px) {
 flex-direction: column;
 padding: .5rem 1rem 0 1rem;
 section{

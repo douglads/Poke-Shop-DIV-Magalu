@@ -1,4 +1,4 @@
-import { useContext, useState } from 'react'
+import { useEffect, useContext, useState } from 'react'
 import Header from "../../components/Header";
 import ListPokemon from "../../components/ListPokemon";
 import { Link } from 'react-router-dom'
@@ -6,20 +6,22 @@ import logo from '../../assets/logo.png'
 import Input from '../../components/Input'
 import PokemonBallCount from '../../components/PokemonBallCount'
 import CardPokemon from '../../components/CardPokemon'
-import { CartItemsContext } from '../../Context/CartItems'
+import { CartItemsContext, ICartItem } from '../../Context/CartItems'
 import { ListPokemonContext } from '../../Context/ListPokemon'
 import { setPokemonListCard } from '../../utils/ListPokemonFromApi';
 import Button from '../../components/Button';
 import { Main } from './styles';
 import { Footer } from '../../components/Footer';
-
 let numberPokemonArray = 10
 export default function Home() {
     const { CartItems, setCartItems } = useContext(CartItemsContext)
     const { pokemon, setPokemon } = useContext(ListPokemonContext)
     const [searchTerm, setSearchTerm] = useState('')
     const CartItemsCopy = CartItems
+    const [cartCount, setCartCount] = useState(CartItemsCopy.count)
+    const [botaoDesabilitado, setBotaoDesabilitado] = useState(false);
     const widthDocument = document.documentElement.clientWidth
+
     let globalOffset = 5
     if (widthDocument > 999) {
         globalOffset = 9
@@ -30,12 +32,11 @@ export default function Home() {
         getPoke('')
     }
 
-    const [cartCount, setCartCount] = useState(CartItemsCopy.count)
-
     async function getPoke(search: string, offset = globalOffset) {
         const getPoke = await setPokemonListCard(search, pokemon, CartItems, offset)
         numberPokemonArray = getPoke[1]
         setPokemon(getPoke[0])
+        setBotaoDesabilitado(false);
     }
 
     function searchPokemon() {
@@ -54,19 +55,24 @@ export default function Home() {
         setCartCount(CartItemsCopy.count)
         setCartItems(CartItemsCopy)
     }
+    const handleClick = () => {
+        setBotaoDesabilitado(true);
+        getPoke(searchTerm, (pokemon.length + globalOffset))
+      };
 
     function buttonActive(length: number): JSX.Element | null {
-        if (pokemon.length <= 0)
+        if (pokemon.length <= 0) {
             return null
-        else if (length < numberPokemonArray) {
-            return (
-                <Button variants="addCart" text="Listar Mais" heandleClick={() =>
-                    getPoke(searchTerm, (pokemon.length + globalOffset))} />
-            )
-        }
 
-        return <p className='noMore'>Não há mais pokemon para pesquisar</p>
-    }
+        } else if (length < numberPokemonArray) {
+            return (
+                <Button disabled={botaoDesabilitado} variants="Red" text="Listar Mais" heandleClick={handleClick} />
+            )
+        } else{
+            return <p className='noMore'>Não há mais pokemon para pesquisar</p>
+        }
+    }    
+    
     return (
         <>
             <Header>
@@ -106,7 +112,7 @@ export default function Home() {
                 </ListPokemon>
                 {buttonActive(pokemon.length)}
             </Main>
-            <Footer></Footer>
+            <Footer />
         </>
     )
 }

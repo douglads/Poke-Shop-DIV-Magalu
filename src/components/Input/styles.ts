@@ -8,7 +8,7 @@ color:  #000000;
 outline: none; 
 transition: all ease 0.5s;
 background-color:  #ffaf2d;
-box-shadow: 1.5px 1.5px 3px  #ffaf2d, -1.5px -1.5px 3px #ffaf2d40, inset 0px 0px 0px  #ffaf2d, inset 0px -0px 0px  #ffdb00;
+box-shadow: 1.5px 1.5px 3px  #ffaf2d, -1.5px -1.5px 3px #ffaf2d40, inset 0px 0px 0px  #ffaf2d, inset 0px -0px 0px  var(--yellow-letter);
 border-radius: 5px 0px 0px 5px;
 cursor: pointer;
 &:hover{
