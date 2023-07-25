@@ -1,4 +1,4 @@
-import { useEffect, useContext, useState } from 'react'
+import { useContext, useState } from 'react'
 import Header from "../../components/Header";
 import ListPokemon from "../../components/ListPokemon";
 import { Link } from 'react-router-dom'
@@ -6,7 +6,7 @@ import logo from '../../assets/logo.png'
 import Input from '../../components/Input'
 import PokemonBallCount from '../../components/PokemonBallCount'
 import CardPokemon from '../../components/CardPokemon'
-import { CartItemsContext, ICartItem } from '../../Context/CartItems'
+import { CartItemsContext } from '../../Context/CartItems'
 import { ListPokemonContext } from '../../Context/ListPokemon'
 import { setPokemonListCard } from '../../utils/ListPokemonFromApi';
 import Button from '../../components/Button';
