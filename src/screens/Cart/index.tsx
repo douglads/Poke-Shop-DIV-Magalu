@@ -4,8 +4,6 @@ import { CartStyle, ButtonsList, ItemCart, Informations, H1 } from "./styles"
 import { useState, useContext, useEffect } from "react"
 import { CartItemsContext } from "../../Context/CartItems"
 import Header from "../../components/Header"
-import PokemonBallCount from "../../components/PokemonBallCount"
-import logo from '../../assets/logo.png'
 import { Footer } from "../../components/Footer"
 
 export default function Cart() {
@@ -65,7 +63,7 @@ export default function Cart() {
         return < Link id="finish" to={"/"} > Voltar para a tela principal</Link >
     }
 
-    function emptyCart(): JSX.Element | null{
+    function emptyCart(): JSX.Element | null {
         if (value.includes('a 0,00  R$')) {
             return null
         }
@@ -75,19 +73,11 @@ export default function Cart() {
     useEffect(() => {
         totalValue();
     }, [value]);
-    
+
     return (
         <>
-            <Header>
-                <section>
-                    <Link to='/'>
-                        <img className='logo' src={logo} alt="" />
-                    </Link>
-                </section>
-                <section className="center">
-                    <H1>Pokebola</H1>
-                </section>
-                <PokemonBallCount value={CartItems.count} />
+            <Header cartCount={CartItems.count}>
+                <H1>Pokebola</H1>
             </Header>
             <CartStyle>
                 {CartItems.item.map((c, index) =>

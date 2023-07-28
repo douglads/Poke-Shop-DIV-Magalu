@@ -2,7 +2,6 @@ import { styled } from "styled-components";
 
 export const Header = styled.header`
 display: grid;
-
 grid-template-columns: repeat(3, 1fr);
 padding: 1rem 5rem 0 5rem;
 
@@ -33,7 +32,7 @@ padding: 1rem 5rem 0 5rem;
 }
 
 @media (max-width: 700px) {
-flex-direction: column;
+display: block;
 padding: .5rem 1rem 0 1rem;
 section{
     padding-bottom: 1rem;
@@ -42,7 +41,7 @@ section{
     display: flex;
     align-items: center ;
     justify-content: center;
-    width: 33%;
+    width: 100%;
 }
 
 .center{
@@ -52,6 +51,12 @@ section{
     width: 100%;
 }
 .end{
+    display: flex;
+    align-items: center ;
+    justify-content: center;
+    width: 100%;
+}
+a{
     display: flex;
     align-items: center ;
     justify-content: center;

@@ -1,11 +1,7 @@
 import { useContext, useState } from 'react'
 import Header from "../../components/Header";
 import ListPokemon from "../../components/ListPokemon";
-import { Link } from 'react-router-dom'
-import logo from '../../assets/logo.png'
 import Input from '../../components/Input'
-import PokemonBallCount from '../../components/PokemonBallCount'
-import CardPokemon from '../../components/CardPokemon'
 import { CartItemsContext } from '../../Context/CartItems'
 import { ListPokemonContext } from '../../Context/ListPokemon'
 import { setPokemonListCard } from '../../utils/ListPokemonFromApi';
@@ -19,7 +15,7 @@ export default function Home() {
     const [searchTerm, setSearchTerm] = useState('')
     const CartItemsCopy = CartItems
     const [cartCount, setCartCount] = useState(CartItemsCopy.count)
-    const [botaoDesabilitado, setBotaoDesabilitado] = useState(false);
+    const [loading, setLoading] = useState(false);
     const widthDocument = document.documentElement.clientWidth
 
     let globalOffset = 5
@@ -36,7 +32,7 @@ export default function Home() {
         const getPoke = await setPokemonListCard(search, pokemon, CartItems, offset)
         numberPokemonArray = getPoke[1]
         setPokemon(getPoke[0])
-        setBotaoDesabilitado(false);
+        setLoading(false);
     }
 
     function searchPokemon() {
@@ -56,9 +52,9 @@ export default function Home() {
         setCartItems(CartItemsCopy)
     }
     const handleClick = () => {
-        setBotaoDesabilitado(true);
+        setLoading(true);
         getPoke(searchTerm, (pokemon.length + globalOffset))
-      };
+    };
 
     function buttonActive(length: number): JSX.Element | null {
         if (pokemon.length <= 0) {
@@ -66,50 +62,23 @@ export default function Home() {
 
         } else if (length < numberPokemonArray) {
             return (
-                <Button disabled={botaoDesabilitado} variants="Red" text="Listar Mais" heandleClick={handleClick} />
+                <Button disabled={loading} variants="Red" text="Listar Mais" heandleClick={handleClick} />
             )
-        } else{
+        } else {
             return <p className='noMore'>Não há mais pokemon para pesquisar</p>
         }
-    }    
-    
+    }
+
     return (
         <>
-            <Header>
-                <section className='start'>
-                    <Link to='/' reloadDocument>
-                        <img className='logo' src={logo} alt="" />
-                    </Link>
-                </section>
-                <section className='center'>
-                    <Input
-                        handleClick={() => searchPokemon()}
-                        handleChange={e => setSearchTerm(e.target.value.toLowerCase())}
-                    />
-                </section>
-                <PokemonBallCount value={cartCount} />
+            <Header cartCount={cartCount} reloadDocument>
+                <Input
+                    handleClick={() => searchPokemon()}
+                    handleChange={e => setSearchTerm(e.target.value.toLowerCase())}
+                />
             </Header>
             <Main>
-                <ListPokemon>
-                    {pokemon.map(pokeDetail =>
-                        <CardPokemon
-                            name={pokeDetail.name}
-                            id={pokeDetail.id}
-                            type={pokeDetail.type}
-                            types={pokeDetail.types}
-                            photo={pokeDetail.photo}
-                            price={pokeDetail.price}
-                            key={pokeDetail.id}
-                            handleClick={() =>
-                                addItems(
-                                    pokeDetail.id,
-                                    pokeDetail.price ?? '0',
-                                    pokeDetail.name,
-                                    pokeDetail.photo)
-                            }
-                        />
-                    )}
-                </ListPokemon>
+                <ListPokemon loading={loading} pokemon={pokemon} handleClick={addItems}/>
                 {buttonActive(pokemon.length)}
             </Main>
             <Footer />
