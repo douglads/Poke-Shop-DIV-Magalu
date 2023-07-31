@@ -50,6 +50,7 @@ export default function Home() {
         CartItemsCopy.count++
         setCartCount(CartItemsCopy.count)
         setCartItems(CartItemsCopy)
+        localStorage.setItem('CartItems', JSON.stringify(CartItemsCopy)) 
     }
     const handleClick = () => {
         setLoading(true);

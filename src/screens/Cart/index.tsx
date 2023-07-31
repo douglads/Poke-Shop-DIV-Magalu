@@ -52,6 +52,7 @@ export default function Cart() {
         CartItemsCopy.count = 0
         CartItemsCopy.item.splice(0, CartItemsCopy.item.length)
         setCartItems(CartItemsCopy)
+        localStorage.removeItem('CartItems')
     }
 
     function finishButton(): JSX.Element {
@@ -60,6 +61,7 @@ export default function Cart() {
                 <Link id="finish" onClick={setCartItemZero} to={"/finished-buy"}>Finalizar Compra</Link>
             )
         }
+        localStorage.removeItem('CartItems')
         return < Link id="finish" to={"/"} > Voltar para a tela principal</Link >
     }
 
@@ -71,8 +73,9 @@ export default function Cart() {
     }
 
     useEffect(() => {
-        totalValue();
-    }, [value]);
+        totalValue();        
+        localStorage.setItem('CartItems', JSON.stringify(CartItemsCopy)) 
+    }, [value, CartItems]);
 
     return (
         <>
